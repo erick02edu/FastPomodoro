@@ -39,8 +39,7 @@ Route::get('/funciones/{any}',function(){
 //Rutas protegidas
 Route::middleware(['auth'])->group(function(){
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/home/{any}', [HomeController::class, 'index'])->where('any', '.*');//Subrutas para navegar en home
+    Route::get('/home/{any?}', [HomeController::class, 'index'])->where('any', '.*')->name('home');
 
 
     Route::get('/getUser',[App\Http\Controllers\UserController::class,'getUserAuth']);
