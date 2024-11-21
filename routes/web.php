@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,15 @@ Auth::routes();
 Route::get('/login-google',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogle'])->name('login-google');
 Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google-return');
 
+Route::get('getUser/{id}',function(String $id){
+    $user=User::find($id);
+    if($user){
+        return $user;
+    }
+    else{
+        return null;
+    }
+});
 
 Route::get('/funciones',function(){
     return view("funciones");
