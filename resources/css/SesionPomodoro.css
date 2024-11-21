@@ -1,0 +1,15 @@
+
+
+.timerPomodoro{
+
+    width: 85%;
+    background: linear-gradient(65deg,#2196F3,#21edf3);
+
+
+}
+
+.contentTimer{
+    border-radius: 50% 50% 0% 0%/35% 35% 0 0;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+}

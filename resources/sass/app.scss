@@ -1,0 +1,165 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+
+//IMPORTAR COLORES
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+$paleta-colors-dark: (
+  'btn-border': #D9D9D9,
+  'hover-primary':#53A3E1,
+  'font-dark':#2E3138,
+  'primary-dark':#202020,
+  'secondary-dark':#4E586E
+);
+
+$paleta-colors-light:(
+    'btn-border': #4E586E,
+    'hover-primary':#53A3E1,
+    'font-dark':#F2F4F3,
+    'primary-dark':#FFFFFF,
+    'secondary-dark':#4E586E
+);
+
+
+$theme-colors: map-merge($theme-colors, $paleta-colors-dark);
+// $theme-colors: map-merge($theme-colors, $paleta-colors-light);
+// $theme-colors: map-merge($theme-colors, $paleta-colors-dark);
+
+//Fontawesome
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/regular.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/brands.css';
+
+
+:root {
+    --InicioBarra: 0;
+}
+
+#MenuTask{
+    transition: all 0.5s ease;
+}
+
+.accordion-button{
+    box-shadow: none !important;
+}
+
+.dropdown-menu{
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+
+.progress-bar{
+    //background: white;
+    background: linear-gradient(65deg,#2196F3,#21edf3);
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    outline: 0.5px solid #2196F3; /*Es parecido a un borde visualmente pero este no ocupa espacio*/
+    //outline-offset: -1px;
+}
+
+.progress-bar::after,
+.number{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.progress-bar::after{
+    content: '';
+    width: 110px;
+    height: 110px;
+    border-radius: inherit; /*Hereda de su padre con el valor inherit*/
+    outline: inherit; /*Heredado de su padre con inherit*/
+}
+
+.circle{
+    stroke-dasharray: 410;
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg);
+}
+
+.custom-outline:focus {
+    outline: none; /* Cambia el color y el grosor según sea necesario */
+    box-shadow: 1px 1px 14px #2196F3;
+}
+
+.range-volumen{
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    --bs-range-thumb-bg: #007bff;
+    --bs-range-thumb-border: 1px solid #007bff;
+    --bs-range-track-bg: #e9ecef;
+
+}
+
+.barNavigation.active{
+    min-width: 25%;
+}
+
+.barNavigation{
+    min-width: auto;
+    transition: all 0.5s ease;
+}
+
+.barBreak{
+    animation: barBreakTime 10s linear forwards;
+}
+
+@keyframes barBreakTime{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+
+
+@keyframes bar-fill {
+    0%{
+        stroke-dashoffset: 0;
+    }
+    100%{
+        stroke-dashoffset: 410;
+    }
+}
+
+.toggleDark::before{
+    position:absolute;
+    content:'';
+    background-color:#2196F3;
+    width: 16px;
+    height: 16px;
+    border-radius: 200px;
+    margin: 2px;
+    transition: 0.2s ;
+}
+
+#btnToggleDarkMode:checked + .toggleDark{
+    background-color: #2196F3;
+}
+
+#btnToggleDarkMode:checked + .toggleDark::before{
+    transform: translateX(13px);
+    background-color: #fefefe;
+}
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+
+
+

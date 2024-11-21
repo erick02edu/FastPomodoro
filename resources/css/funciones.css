@@ -1,0 +1,41 @@
+.body{
+   margin: 0;
+   padding: 0;
+
+}
+
+.menuFunciones{
+    min-width: 35%;
+    height: 100vh;
+    position: sticky;
+    top:0;
+    left: 0;
+}
+
+.menu-secondary{
+    position: sticky;
+    top: 0;
+}
+
+.layoutFunciones{
+    min-height: 100vh;
+}
+
+@media (max-width: 991px)  {
+    .menuFunciones{
+        min-width: 100%;
+        height: auto;
+        position:static;
+    }
+
+    .layoutFunciones{
+
+        min-height: auto;
+    }
+
+    .menu-secondary{
+        position: static;
+    }
+}
+
+
