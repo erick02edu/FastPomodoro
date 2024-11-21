@@ -25,7 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/login-google',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogle'])->name('login-google');
-Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google');
+Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google-return');
 
 
 Route::get('/funciones',function(){
