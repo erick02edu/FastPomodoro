@@ -31,10 +31,16 @@ Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,
 Route::get('getUser/{id}',function(String $id){
     $user=User::find($id);
     if($user){
-        return $user;
+        response()->json([
+            'success' => true,
+            'data' => $user
+        ]);
     }
     else{
-        return null;
+        return response()->json([
+            'success' => false,
+            'message' => 'Usuario no encontrado'
+        ], 404);
     }
 });
 
