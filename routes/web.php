@@ -28,21 +28,6 @@ Auth::routes();
 Route::get('/login-google',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogle'])->name('login-google');
 Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google-return');
 
-Route::get('getUser/{id}',function(String $id){
-    $user=User::find($id);
-    if($user){
-        response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-    }
-    else{
-        return response()->json([
-            'success' => false,
-            'message' => 'Usuario no encontrado'
-        ], 404);
-    }
-});
 
 Route::get('/funciones',function(){
     return view("funciones");
