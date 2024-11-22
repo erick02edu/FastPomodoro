@@ -17,10 +17,10 @@ export default defineConfig({
     build: {
         outDir: 'public/build',
     },
-    server: {
-        host: '0.0.0.0',
-        port: 8000,
-        https:true,
-    },
+    // server: {
+    //     host: '0.0.0.0',
+    //     port: 8000,
+    //     https:true,
+    // },
 
 });
