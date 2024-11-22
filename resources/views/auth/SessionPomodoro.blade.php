@@ -16,7 +16,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('/img/CerebroTriste.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ secure_asset('/img/CerebroTriste.png') }}">
 
     <!-- Scripts -->
     @viteReactRefresh
