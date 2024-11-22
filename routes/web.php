@@ -29,13 +29,17 @@ Route::get('/login-google',[App\Http\Controllers\Auth\LoginController::class,'Lo
 Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google-return');
 
 
-Route::get('/funciones',function(){
-    return view("funciones");
-});
+// Route::get('/funciones',function(){
+//     return view("funciones");
+// });
 
-Route::get('/funciones/{any}',function(){
+// Route::get('/funciones/{any}',function(){
+//     return view("funciones");
+// });//Subrutas para navegar en funciones
+
+Route::get('/funciones/{any?}',function(){
     return view("funciones");
-});//Subrutas para navegar en funciones
+})->where('any', '.*')->name('home');
 
 //Rutas protegidas
 Route::middleware(['auth'])->group(function(){
