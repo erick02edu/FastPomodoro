@@ -8,7 +8,9 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
-                'resources/css/app.css'
+                'resources/css/app.css',
+                'resources/css/funciones.css',
+                'resources/css/SesionPomodoro.css'
             ],
             refresh: true,
         }),
