@@ -1,9 +1,8 @@
 import {createRoot} from 'react-dom/client'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { MenuFunciones } from './Components/MenuFunciones'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { ChargingSpinner } from '../Shared/ChargingSpinner'
-
 const CrearSesiones=lazy(()=>import('./Pages/CrearSesiones'))
 const SesionesEstudio=lazy(()=>import('./Pages/SesionesEstudio'));
 const PanelEstudio=lazy(()=>import('./Pages/PanelEstudio'));

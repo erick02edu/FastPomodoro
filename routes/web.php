@@ -38,8 +38,8 @@ Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,
 // });//Subrutas para navegar en funciones
 
 Route::get('/funciones/{any?}',function(){
-    return view("funciones");
-})->where('any', '.*')->name('home');
+    return view("Funciones");
+})->where('any', '.*')->name('funciones');
 
 //Rutas protegidas
 Route::middleware(['auth'])->group(function(){
