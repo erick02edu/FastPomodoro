@@ -22,7 +22,7 @@ export function ListAvatares(){
 
         {
             window.avatares.map((avatar,index)=>(
-                <Avatar key={index} urlImgPerfil={`${import.meta.env.VITE_API_URL}/img/avatares/${avatar}`} />
+                <Avatar key={index} urlImgPerfil={`${import.meta.env.VITE_API_URL}/img/Avatares/${avatar}`} />
             ))
         }
     </>
