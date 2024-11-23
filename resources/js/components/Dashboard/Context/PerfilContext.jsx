@@ -63,7 +63,7 @@ export function ContextPerfil(props){
         } catch (error) {
             console.log(error);
         }
-        
+
         location.reload();
 
     }

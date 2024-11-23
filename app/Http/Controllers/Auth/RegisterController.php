@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'avatar'=> env('VITE_API_URL') . '/img/avatares/AvatarDefault.png'
+            'avatar'=> env('VITE_API_URL') . '/img/Avatares/AvatarDefault.png'
         ]);
 
         // Definir las configuraciones por defecto
