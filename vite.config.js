@@ -2,8 +2,6 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
 
-const apiUrl = import.meta.env.VITE_API_URL;
-
 export default defineConfig({
     plugins: [
         laravel({
@@ -18,11 +16,6 @@ export default defineConfig({
         }),
         react(),
     ],
-    server: {
-        proxy: {
-            '/img': apiUrl  // Asegúrate de redirigir /img a Laravel
-        },
-    },
     build: {
         outDir: 'public/build',
     },
