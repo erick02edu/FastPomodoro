@@ -10,7 +10,7 @@ class GroupTask extends Model
 {
     use HasFactory;
 
-    protected $table="grouptask";
+    protected $table="groupTask";
 
     public function sessions(){
         return $this->belongsToMany(SessionPomodoro::class,'group_for_session','idGroupTask','idSession');
