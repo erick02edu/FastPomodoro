@@ -11,14 +11,14 @@ export function OrderTaskSesion(){
             <i>"Repaso de verbos"</i> una vez terminada esta tarea se pasara a la siguiente en este caso <i>"Estudiar vocabulario de lectura"</i>
         </p>
 
-        <ImgsFuncionalidades urlImg="img/imgFuncionalidades/SesionEstudio/SesionEstudio2.jpg"/>
+        <ImgsFuncionalidades urlImg="img/ImgFuncionalidades/SesionEstudio/SesionEstudio2.jpg"/>
 
         <p className="mt-3">
             Si desea cambiar el orden puede hacerlo moviendo las tareas a traves de las flechas en la parte derecha de cada tarea.
         </p>
 
-        <ImgsFuncionalidades urlImg="img/imgFuncionalidades/SesionEstudio/SesionEstudio3.jpg"/>
-        <ImgsFuncionalidades urlImg="img/imgFuncionalidades/SesionEstudio/SesionEstudio4.png"/>
+        <ImgsFuncionalidades urlImg="img/ImgFuncionalidades/SesionEstudio/SesionEstudio3.jpg"/>
+        <ImgsFuncionalidades urlImg="img/ImgFuncionalidades/SesionEstudio/SesionEstudio4.png"/>
 
     </div>
 }

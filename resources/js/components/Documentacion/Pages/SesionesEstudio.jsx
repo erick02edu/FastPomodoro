@@ -29,7 +29,7 @@ export default function SesionesEstudio(){
 
         <p>Para comenzar una sesión de estudio simplemente deberemos de dar clic en el botón superior derecho "Iniciar sesión".</p>
 
-        <ImgsFuncionalidades urlImg="img/imgFuncionalidades/SesionEstudio/SesionEstudio1.jpg"/>
+        <ImgsFuncionalidades urlImg="img/ImgFuncionalidades/SesionEstudio/SesionEstudio1.jpg"/>
 
         <OrderTaskSesion/>
 
