@@ -6,6 +6,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/css/app.css',
@@ -19,6 +20,8 @@ export default defineConfig({
     build: {
         outDir: 'public/build',
     },
+
+
     // server: {
     //     host: '0.0.0.0',
     //     port: 8000,

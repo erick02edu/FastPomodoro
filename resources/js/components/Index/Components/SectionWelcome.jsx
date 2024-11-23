@@ -12,7 +12,7 @@ export function SectionWelcome(){
             </div>
 
             <div className="d-none d-lg-flex justify-content-center align-items-center">
-                <img src={`/img/imgSection5.jpg`} className="rounded-circle shadow" style={{height:"280px"}} alt="error"></img>
+                <img src={`${import.meta.env.VITE_API_URL}/img/ImgSection5.jpg`} className="rounded-circle shadow" style={{height:"280px"}} alt="error"></img>
             </div>
 
         </div>
