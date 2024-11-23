@@ -33,6 +33,7 @@ export default function Index(){
 
             <SectionWelcome/>
 
+            Ruta:{import.meta.env.VITE_API_URL}
             <ContentIndex/>
 
             <FooterIndex/>
