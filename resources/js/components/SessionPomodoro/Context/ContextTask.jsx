@@ -40,16 +40,15 @@ export function ContextTask(props){
     const deleteTask=(idTask)=>{
         setListTaskPending(previewList=>{
             const newArray=previewList.filter(task => task.id != idTask)
-            console.log("El nuevo array de pendientes es:"+newArray.length)
+
             return newArray;
         })
-        console.log("El nuevo array de pendientes es"+ListTaskPending.length);
+
     }
 
     const changeTaskCurrent=(taskId)=>{
         //Obtener la tarea actual
         const newTareaActual=ListTaskPending.find(task=>task.id==taskId)
-        console.log(newTareaActual)
         //Actualizar estado
         setTareaActual(newTareaActual);
 

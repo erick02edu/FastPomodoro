@@ -162,8 +162,7 @@ export function ContextTask(props){
 
 
     const addTask=async(e)=>{
-        console.log(formTask);
-        alert("Subiendo para agregar tarea")
+
         try {
             //Validaciones
             // if(formTask.name!=""){
@@ -240,7 +239,7 @@ export function ContextTask(props){
         setLoadAddTask(true)
         try {
             const response=await axios.post(`/addTaskFast/${nameTask}`);
-            console.log(response.data);
+
             return response.data
 
         } catch (error) {
