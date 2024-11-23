@@ -12,7 +12,7 @@ export default function AppIndex(){
 
     return (
         <BrowserRouter>
-
+           
             <Routes>
 
                 <Route path="/" element={
