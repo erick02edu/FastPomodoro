@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\DB;
 
 class SessionController extends Controller
 {
-
     protected $SesionService;
 
     public function __construct(SesionPomodoroService $service)
@@ -27,7 +26,6 @@ class SessionController extends Controller
 
         $idUsuario=Auth::id();
         $session=SessionPomodoro::with('tasks')->find($id);
-
 
         //Verificar que la sesion pertenezca al usuario autenticado
         if($session->idUsuario==$idUsuario){
@@ -65,20 +63,16 @@ class SessionController extends Controller
             ];
 
             //Actualizar la fecha en que se abrio la sesion
-            //date_default_timezone_set('America/Mexico_City');
-
             Carbon::setLocale('es');
             $session->lastOpening=Carbon::now('America/Mexico_City');
             $session->save();
-
-
 
             return response()
             ->view('auth.SessionPomodoro',['datos' => $data])
             ->header('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')  // No cachear
             ->header('Pragma', 'no-cache')  // Evitar cacheo
             ->header('Expires', '0');
-            // return view('auth.SessionPomodoro',['datos' => $data]);
+
         }
         else{
             return back();
@@ -104,7 +98,6 @@ class SessionController extends Controller
 
         $newSesion->name=$validateData['name'];
         //Calcular tiempo del pomodoro
-
         $durationSesion=0;
 
         if(count($request->ListTask) > 0){
@@ -157,7 +150,7 @@ class SessionController extends Controller
 
     function getSesionInfo($id){
 
-        //Verificar que la sesion pertenezca al usuario authenticado
+        //Verificar que la sesión pertenezca al usuario authenticado
         try{
             $InfoSesion=SessionPomodoro::with('tasks')->find($id);
 
@@ -188,28 +181,20 @@ class SessionController extends Controller
     }
 
     public function getRecentSesions(){
-
         $viewSesionRecent=5;
-
         $Sesiones=SessionPomodoro::where("idUsuario",Auth::id())->orderBy('lastOpening','desc')->take($viewSesionRecent)->get();
-
         return $Sesiones;
     }
 
     public function addTaskSesion(Request $request){
 
         $sesion=SessionPomodoro::find($request->idSesion);
-
         $maxOrden = $sesion->tasks()->max('order');
-
         $tasksWithOrder = [];
-
-
 
         foreach ($request->tasks as $index => $taskId) {
             $tasksWithOrder[$taskId] = ['order' =>$maxOrden+ ($index + 1)];
         }
-
 
         if ($sesion) {
             // Adjunta las tareas a la sesión
@@ -218,33 +203,23 @@ class SessionController extends Controller
 
         // Actualiza la duración de la sesión después de adjuntar
         $newDuration=$this->SesionService->updateDurationSesion($request->idSesion);
-
-        // $this->SesionService->updateDurationSesion($request->idSesion);
         return $newDuration;
-
-
     }
 
     public function updateTaskOrder(Request $request){
-
         $sesion=SessionPomodoro::find($request->input("idSesion"));
 
         foreach ($request->input("listTasks") as $index => $taskId) {
-
             $sesion->tasks()->updateExistingPivot($taskId, ['order' => $index+1]);
-
         }
     }
 
     public function deleteTaskSesion(Request $request){
-
         $sesion=SessionPomodoro::find($request->input("idSesion"));
         $sesion->tasks()->detach($request->input("idTask"));
 
         $newDuration=$this->SesionService->updateDurationSesion($request->input("idSesion"));
-
         return $newDuration;
-
     }
 
 }

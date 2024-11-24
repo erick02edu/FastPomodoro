@@ -3,7 +3,6 @@ import { FormAddGroup } from "./FormAddGroup";
 import { GroupTaskContext } from "../Context/ContextGroupTask";
 import { ChargingSpinner } from "../../../../Shared/ChargingSpinner";
 
-
 export function ModalAddGroup(){
 
     const {getGroupTask,btnCloseModalAddGroup}=useContext(GroupTaskContext);
@@ -21,7 +20,6 @@ export function ModalAddGroup(){
             const button=event.relatedTarget;
 
             const returnModal=button.getAttribute('data-return-modal-sesion');
-            //alert(returnModal);
 
             if(returnModal=="false"){
                setReturnModalCreateSesion(false)
@@ -75,7 +73,6 @@ export function ModalAddGroup(){
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"
-                    {...atributteSpecial}
                     >
                         Close
                     </button>
@@ -89,10 +86,4 @@ export function ModalAddGroup(){
             </div>
         </div>
     </div>
-
-
-
 }
-
-
-

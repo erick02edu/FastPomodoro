@@ -16,16 +16,13 @@ export function ContextCreateSession(props){
     const [ListTaskComplet,setListTaskComplet]=useState([]);
     const btnBackCarousel=useRef();
     const modalCreateSesion=useRef();
+    let navigate=useNavigate();
 
     const [formSesion,setFormSesion]=useState({
         name:'',
         ListTask:[],
         GroupTask:[],
     })
-
-    let navigate=useNavigate();
-
-    
 
     const crearNewSession=async()=>{
 
@@ -35,19 +32,14 @@ export function ContextCreateSession(props){
 
         await axios.post('/sesion',formSesion)
         .then(async (response)=>{
-            console.log(response.data)
             let newId=response.data
-            //window.location.href="/home/pomodoros"
             setFormSesion({
                 name:'',
                 ListTask:[],
                 GroupTask:[],
             })
             setOptionTask(null);
-
-
             navigate(`/home/sesiones/${newId}`,{replace:true})
-
         })
         .catch(error=>console.log(error))
     }

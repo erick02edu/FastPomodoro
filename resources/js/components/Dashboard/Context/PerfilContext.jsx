@@ -16,8 +16,6 @@ export function ContextPerfil(props){
         setcsrfToken(document.querySelector(' meta[name="csrf-token"] ').getAttribute('content'));
     },[])
 
-
-
     const changeImgPerfil=async(urlImg)=>{
         if(urlImg!=null){
             setUrlImgCurrent(urlImg)
@@ -31,9 +29,7 @@ export function ContextPerfil(props){
         }
     }
 
-
     const logOut=async()=>{
-
         await axios.post('/logout',{
             headers:{
                 "Content-Type":"application/json",
@@ -56,18 +52,13 @@ export function ContextPerfil(props){
     }
 
     const deleteAccount=async(id)=>{
-
         try {
             const response=await axios.delete(`/user/${id}`);
-            console.log(response.data)
         } catch (error) {
             console.log(error);
         }
-
         location.reload();
-
     }
-
 
     return <PerfilContext.Provider value={{
         urlImgCurrent,
@@ -79,5 +70,3 @@ export function ContextPerfil(props){
         {props.children}
     </PerfilContext.Provider>
 }
-
-

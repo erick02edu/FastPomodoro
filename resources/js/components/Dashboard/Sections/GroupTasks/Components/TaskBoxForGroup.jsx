@@ -17,19 +17,15 @@ export function TaskBoxForGroup({task,idGrupo}){
 
         <TooltipTaskDetail task={task} anchorSelect={`#taskInfo${task.id}`}/>
 
-
         <div className="d-flex w-100 justify-content-between ">
-
             <div className="d-flex flex-column">
                 <strong>{task.NombreTask}</strong>
-
                 <div className="d-flex gap-1 align-items-center">
                     <span className="me-1">{task.numPomodoros} pomodoros</span>
                     {Array.from({ length: task.numPomodoros }).map((_, index) => (
                         <i className="fa-solid fa-apple-whole text-primary" key={index}></i>
                     ))}
                 </div>
-
             </div>
 
             <div className="d-flex gap-2">
@@ -37,7 +33,6 @@ export function TaskBoxForGroup({task,idGrupo}){
                     <div className="me-2">
                         <i className="fa-solid fa-circle-info" id={`taskInfo${task.id}`}></i>
                     </div>
-
                     <strong>{task.TimeInterval} min</strong>
                 </div>
 
@@ -46,12 +41,8 @@ export function TaskBoxForGroup({task,idGrupo}){
                         Quitar
                     </button>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 }
 

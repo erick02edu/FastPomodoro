@@ -1,7 +1,5 @@
-import {useState,useEffect, useContext} from 'react'
-import axios from 'axios';
+import {useState} from 'react'
 import { ImgPerfil } from '../../../../Shared/ImgPerfil';
-import { PerfilContext } from '../../../Context/PerfilContext';
 import { ListAvatares } from '../Components/ListAvatares';
 import { ToastChangeImgPerfil } from '../Components/ToastChangeImgPerfil';
 import { AlertDeleteAccount } from '../Components/AlertDeleteAccount';

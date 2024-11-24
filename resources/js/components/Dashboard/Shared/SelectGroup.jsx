@@ -15,7 +15,6 @@ con esta función podrás actualizar tu propio estado según tus necesidades*/
         ...Lógica para actualizar tu propio estado
     }
 */
-
 export function SelectGroup({setListGroupTask}){
 
     const {ListGroupTask,getGroupTask,hasMore,isLoadingGroup,getNextGroup}=useContext(GroupTaskContext);
@@ -70,7 +69,6 @@ export function SelectGroup({setListGroupTask}){
     }
 
     const nextGroups=()=>{
-
         getNextGroup();
     }
 
@@ -104,42 +102,39 @@ export function SelectGroup({setListGroupTask}){
                             <i className="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
-                    {/* <button className="btn btn-primary"><i className="fa-solid fa-plus text-white"></i></button> */}
                 </div>
             </div>
             <div className="border p-2 rounded-2 overflow-y-auto" id="sectionGroup" style={{height:'200px'}}>
-                    {
-                        isLoadingGroup ? <div className="w-100 d-flex justify-content-center align-items-center mt-5" style={{height:'100px'}}>
-                            <ChargingSpinner/>
+                {
+                    isLoadingGroup ? <div className="w-100 d-flex justify-content-center align-items-center mt-5" style={{height:'100px'}}>
+                        <ChargingSpinner/>
+                    </div>
+                    : ListGroupTask.length==0 ? <div className="d-flex justify-content-center align-items-center" style={{height:"150px"}}>
+                        No se encontró ningún grupo
+                    </div>
+                    :<InfiniteScroll
+                        dataLength={ListGroupTask.length}
+                        next={nextGroups}
+                        hasMore={hasMore}
+                        scrollableTarget="sectionGroup"
+                        loader={<GrowingSpinner/>}
+                    >
+
+                        <div className="d-flex flex-column gap-2">
+                        {
+                            ListGroupTask.map(group=>(
+                                <div key={group.id} className="my-2 px-2 py-1 bg-body-secondary rounded-2 d-flex gap-2 align-items-center">
+                                    <input type="checkbox"  value={group.id} className=" form-check"
+                                    onChange={(e)=>{ hanleCheckbox(e,group)} }
+                                    checked={ GroupSelect.includes(group) }/>
+
+                                    <span>{group.nameGroup}</span>
+                                </div>
+                            ))
+                        }
                         </div>
-                        : ListGroupTask.length==0 ? <div className="d-flex justify-content-center align-items-center" style={{height:"150px"}}>
-                            No se encontró ningún grupo
-                        </div>
-                        :<InfiniteScroll
-                            dataLength={ListGroupTask.length}
-                            next={nextGroups}
-                            hasMore={hasMore}
-                            scrollableTarget="sectionGroup"
-                            loader={<GrowingSpinner/>}
-                        >
-
-                            <div className="d-flex flex-column gap-2">
-                            {
-                                ListGroupTask.map(group=>(
-                                    <div key={group.id} className="my-2 px-2 py-1 bg-body-secondary rounded-2 d-flex gap-2 align-items-center">
-                                        <input type="checkbox"  value={group.id} className=" form-check"
-                                        onChange={(e)=>{ hanleCheckbox(e,group)} }
-                                        checked={ GroupSelect.includes(group) }/>
-
-                                        <span>{group.nameGroup}</span>
-                                    </div>
-                                ))
-                            }
-                            </div>
-                        </InfiniteScroll>
-
-                    }
-
+                    </InfiniteScroll>
+                }
             </div>
         </div>
 

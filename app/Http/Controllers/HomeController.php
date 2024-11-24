@@ -31,13 +31,9 @@ class HomeController extends Controller
             $settings=$user->settings;
             $userData = $user->only(['id', 'name', 'email', 'avatar','avatar_external','created_at']);
 
-
             $Path="img/Avatares";
             $Paths=array_diff(scandir($Path), array('.', '..') );
             $ListAvatares=array_values($Paths);
-
-
-            //return view('home',['user'=>$userData,"avatares"=>$ListAvatares,"settings"=>$settings]);
 
             return response()
                 ->view('home', [

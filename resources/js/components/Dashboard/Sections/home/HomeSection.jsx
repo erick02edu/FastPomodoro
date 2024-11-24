@@ -1,13 +1,8 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SesionRecents } from "./Components/SesionsRecents";
-import { Tooltip } from "react-tooltip";
 
 export default function HomeSection(){
-
-    useEffect(()=>{
-        console.log(window)
-    },[])
 
     const [userAuth,setUserAuth]=useState(window.user);
 

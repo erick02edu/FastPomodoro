@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { GroupTaskContext } from "../Context/ContextGroupTask"
 
 export function ConfimDeleteGroup(){
-
     const {GroupSelect,deleteGroup}=useContext(GroupTaskContext);
 
     return  <div className="modal" id="deleteGroup" tabIndex="-1">

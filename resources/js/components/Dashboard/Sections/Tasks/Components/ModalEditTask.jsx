@@ -3,9 +3,7 @@ import { taskContext } from "../Context/ContextTask"
 import { FormEditTask } from "./FormEditTask";
 import { BtnUpdateTask } from "./BtnUpdateTask";
 
-
 export function ModalEditTask(){
-
 
     const {btnCloseModalEdit}=useContext(taskContext);
     const [returnModal,setReturnModal]=useState('')
@@ -38,5 +36,3 @@ export function ModalEditTask(){
     </div>
 
 }
-
-

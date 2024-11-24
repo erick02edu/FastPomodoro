@@ -22,12 +22,7 @@ export function ModalAddTaskSesion({sesion}){
 
         await addTasksToSesion(sesion.id,taskSelect);
 
-        console.log(taskCompletSelect);
-
         let newTasks=[...sesion.tasks,...taskCompletSelect]
-
-        console.log(newTasks)
-        //newTasks.sort((a,b)=>a.id-b.id);
 
         setInfoSesion(prevInfoSesion=>{
             return {

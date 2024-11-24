@@ -1,15 +1,3 @@
-{{-- @extends('layouts.app')
-
-<script>
-    window.user=@json($user);
-    window.avatares=@json($avatares);
-    window.settings=@json($settings);
-</script>
-
-<div id="appDashboard">
-
-</div> --}}
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

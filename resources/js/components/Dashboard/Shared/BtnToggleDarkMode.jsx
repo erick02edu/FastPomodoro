@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { ConfigContext } from "../Sections/Config/Context/ContextConfig";
 
-
 export function BtnToggleDarkMode(){
 
     const [checked,setChecked]=useState(document.body.getAttribute('data-bs-theme')=='dark');

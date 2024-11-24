@@ -1,7 +1,5 @@
 
 export function ChargingSpinner({tamaño="N"}){
-
-
     switch(tamaño){
         case "N": return <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden" >Loading...</span>
@@ -11,6 +9,5 @@ export function ChargingSpinner({tamaño="N"}){
         </div>
 
     }
-
 }
 

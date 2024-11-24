@@ -1,17 +1,12 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createSessionContext } from "../../Context/ContextCreateSession";
 
 export function BoxTask({task}){
 
-    let i=0;
-
-    const {setFormSesion,formSesion}=useContext(createSessionContext)
-
-    const InputTask=useRef();
+    const {setFormSesion}=useContext(createSessionContext)
     const [isCheck,setIsCheck]=useState(false)
 
     useEffect(()=>{
-
         return ()=>{
             setFormSesion((prevForm)=>({
                 ...prevForm,
@@ -36,14 +31,12 @@ export function BoxTask({task}){
 
     },[isCheck])
 
-
     const cambio=(e)=>{
         setIsCheck(preCheck=>!preCheck)
     }
 
 
     return <tr>
-
         <th scope="row">
             <input type="checkbox" className="form-check-input"  id="" value={task.id} checked={isCheck} onChange={cambio}/>
         </th>

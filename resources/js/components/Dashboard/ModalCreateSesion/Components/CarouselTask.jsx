@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { createSessionContext } from "../../Context/ContextCreateSession"
 import { SelectTask } from "../../Sections/Tasks/Components/SelectTask"
-import { ContextTask } from "../../Sections/Tasks/Context/ContextTask"
 
 export function CarouselTask(){
 

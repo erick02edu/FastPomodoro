@@ -1,9 +1,5 @@
-
-
 export function LogoFastPomodoro({color="text-primary",link=false}){
-
     return <>
-
         {
             link ? <a href="/" className="text-decoration-none">
                 <div className={`${color}`} >
@@ -14,9 +10,7 @@ export function LogoFastPomodoro({color="text-primary",link=false}){
                 <i className="fa-solid fa-hourglass-end"></i> FastPomodoro
             </div>
         }
-
     </>
-
 }
 
 

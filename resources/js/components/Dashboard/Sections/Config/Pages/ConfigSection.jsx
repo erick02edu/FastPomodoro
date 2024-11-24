@@ -3,7 +3,6 @@ import { BtnToggleDarkMode } from "../../../Shared/BtnToggleDarkMode";
 import { ConfigContext } from "../Context/ContextConfig";
 import { ToastSaveSettings } from "../Components/ToastSaveSettings";
 
-
 export default function ConfigSection(){
 
     const {config,handleConfig,saveSettings}=useContext(ConfigContext)

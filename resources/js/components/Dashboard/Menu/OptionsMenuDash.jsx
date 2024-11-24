@@ -1,14 +1,12 @@
-import { useContext,useState } from "react";
+import { useContext } from "react";
 import { MenuContext } from "../Context/ContextMenu";
 import { NavLink } from "react-router-dom";
 import { PerfilContext } from "../Context/PerfilContext";
-import { Tooltip } from "react-tooltip"
 
 const OptionMenuDash=({nameOption,iconOption,typeIcon="icon",route})=>{
 
     const {urlImgPerfil}=useContext(PerfilContext);
     const {BarraActive}=useContext(MenuContext)
-
 
     return <>
         <div className="w-100 overflow-x-hidden d-flex flex-nowrap justify-content-center">

@@ -16,19 +16,14 @@ export function ContextTask(props){
     const ToastDelete=useRef();
     const [SelectTasks,setSelectTask]=useState([]);
     const [loadAddTask,setLoadAddTask]=useState(false);
-
     let navigation=useNavigate();
-
     const [TaskSelect,setTaskSelect]=useState();
     const [page,setPage]=useState(1)
-
     const toastAdd=useRef();
     const [busqueda,setBusqueda]=useState('');
-
     const [hasMore,setHasMore]=useState(true);
 
     //formulario add task
-    // let formTask={};
     const [formTask,setFormTask]=useState({
         name:'',
         numPomodoros:0,
@@ -52,7 +47,6 @@ export function ContextTask(props){
         ToastAddTask.show();
     }
 
-
     const getTask= async(omitTask=[])=>{
 
         setBusqueda('');
@@ -62,16 +56,11 @@ export function ContextTask(props){
         setHasMore(true);
 
         try{
-
-            //alert("Obteniendo tareas")
-            //console.log(omitTask)
-
             const response=await axios.get('/tasksPaginate',{
                 params:{
                     omitTask
                 }
             })
-            //console.log(response.data.data)
             setListTasks(response.data.data)
             //Ver si hay mas datos
             if(response.data.current_page >= response.data.last_page){
@@ -90,18 +79,12 @@ export function ContextTask(props){
         const nextPage=page+1;
         setPage(prevPage=>prevPage+1);
         try{
-
-            //alert("Obteniendo mas tareas")
-            //console.log(omitTask);
-
             const response=await axios.get('/tasksPaginate',{params:{
                 page:nextPage,
                 omitTask:omitTask
             }});
-            // console.log(response.data)
             const newTasks=response.data.data;
             setListTasks(prevList=>[...prevList,...newTasks])
-
             //Ver si hay mas datos
             if(response.data.current_page >= response.data.last_page){
                 setHasMore(false);
@@ -113,11 +96,9 @@ export function ContextTask(props){
     }
 
     const searchTask=async(query,omitTask=[])=>{
-
         setIsLoading(true);
         setPage(1);
-        setHasMore(true); //CAMBIAR A TRUE
-
+        setHasMore(true);
         try {
             const response=await axios.get('/searchTask',{
                 params:{
@@ -131,7 +112,6 @@ export function ContextTask(props){
             if(response.data.current_page >= response.data.last_page){
                 setHasMore(false);
             }
-
             setIsLoading(false);
         } catch (error) {
             console.log(error);
@@ -139,7 +119,6 @@ export function ContextTask(props){
     }
 
     const getMoreTaskSearch=async()=>{
-
         const nextPage=page+1
         setPage(prevPage=>prevPage+1);
 
@@ -162,42 +141,17 @@ export function ContextTask(props){
 
 
     const addTask=async(e)=>{
-
         try {
-            //Validaciones
-            // if(formTask.name!=""){
-            //     if(formTask.numPomodoros>0){
-                    const response=await axios.post('/task',formTask)
-                    console.log(response);
-                    hideModalAdd();
-                    await getTask();
-                    //openToast('Tarea agregada','se agrego la tarea con exito','success')
-
-                    showToastAdd();
-
-                    //Borrar errores
-                    setError({
-                        errorIn:'',
-                        type:'',
-                        message:'',
-                    })
-
-            //     else{
-            //         setError({
-            //             errorIn:'numPomodoros',
-            //             type:'maxNumPomo',
-            //             message:'Se debe tener al menos un pomodoro',
-            //         })
-            //     }
-            // }else{
-            //     setError({
-            //         errorIn:'name',
-            //         type:'required',
-            //         message:'Ingresa un nombre para la tarea',
-            //     })
-            // }
-
-
+            const response=await axios.post('/task',formTask)
+            hideModalAdd();
+            await getTask();
+            showToastAdd();
+            //Borrar errores
+            setError({
+                errorIn:'',
+                type:'',
+                message:'',
+            })
         } catch (error) {
             console.log(error)
         }
@@ -206,7 +160,6 @@ export function ContextTask(props){
     const updateTask=async(returnPage)=>{
         try {
             const response=await axios.put(`/task/${formEditTask.id}`,{newTask:formEditTask})
-            //btnCloseModalEdit.current.click();
             if(response.status==200){
                 await getTask();
 
@@ -221,7 +174,6 @@ export function ContextTask(props){
     const deleteTask=async()=>{
         try {
             const response=await axios.delete(`/task/${TaskSelect.id}`)
-
             setListTasks((prevTask)=>{
                 return prevTask.filter(task=>task.id!=TaskSelect.id)
             })
@@ -239,12 +191,9 @@ export function ContextTask(props){
         setLoadAddTask(true)
         try {
             const response=await axios.post(`/addTaskFast/${nameTask}`);
-
             return response.data
-
         } catch (error) {
             console.log(error)
-
         }
         finally{
             setLoadAddTask(false);
@@ -252,17 +201,14 @@ export function ContextTask(props){
     }
 
     const addList=(newTask)=>{
-
         setListTasks(prevTasks=>{
             return [newTask,...prevTasks]
         })
     }
 
     const getInfoTask=async(id)=>{
-
         setIsLoading(true)
         try {
-
             const response=await axios.get('/getInfoTask',{params:{id}})
             if(response.status==200){
                return response.data;

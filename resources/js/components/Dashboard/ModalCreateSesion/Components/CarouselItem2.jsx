@@ -27,6 +27,5 @@ export function CarouselItem2(){
             </div>
         </div>
     </div>
-
 }
 

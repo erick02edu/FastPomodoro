@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createContext,useRef,useState } from "react";
-import { BtnToogleMode } from "../../../Menu/BtnToogleMode";
 import { Toast } from "bootstrap";
 
 export const ConfigContext=createContext()
@@ -63,7 +62,6 @@ export function ContextConfig(props){
 
             let toastSaveSettings=new Toast(refToastSavefSettings.current);
             toastSaveSettings.show();
-
 
         } catch (error) {
             console.log(error)

@@ -40,7 +40,6 @@ export function Sesión({sesion}){
                 renameSesion(sesion.id,nameSesion)
             }
         }
-
     }
 
     const formatearMinutos=(minutos)=>{

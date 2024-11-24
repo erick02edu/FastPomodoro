@@ -68,8 +68,6 @@ class GroupTaskController extends Controller
             $Grupo->Tasks()->attach($idTask);
         }
 
-
-
         $grupo=new GroupTaskController();
         $grupoReturn=$grupo->getGroupInfo($request->input('idGroup'));
 
@@ -78,10 +76,8 @@ class GroupTaskController extends Controller
     }
 
     public function deleteTaskGroup(Request $request){
-
         $Grupo=GroupTask::find($request->input("idGrupo"));
         $Grupo->Tasks()->detach($request->input("idTask"));
-
     }
 
     public function getGroupInfo(String $idGrupo){

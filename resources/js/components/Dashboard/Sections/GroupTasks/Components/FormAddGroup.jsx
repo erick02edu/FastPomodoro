@@ -1,5 +1,4 @@
-import { useContext, useState } from "react"
-import { ContextTask, taskContext } from "../../Tasks/Context/ContextTask"
+import { useContext } from "react"
 import { GroupTaskContext } from "../Context/ContextGroupTask";
 import { SelectTask } from "../../Tasks/Components/SelectTask";
 
@@ -17,7 +16,6 @@ export function FormAddGroup(){
     }
 
     return <>
-
         <div className="">
             <label className="form-label">Nombre del grupo</label>
             <input type="text" placeholder="Nombre grupo ..." value={formGroup.name}
@@ -30,5 +28,4 @@ export function FormAddGroup(){
             {errorForm}
         </span>}
     </>
-
 }

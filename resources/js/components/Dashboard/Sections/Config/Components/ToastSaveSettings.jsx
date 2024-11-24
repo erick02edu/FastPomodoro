@@ -1,8 +1,6 @@
 import { useContext } from "react"
 import { ConfigContext } from "../Context/ContextConfig"
 
-
-
 export function ToastSaveSettings(){
 
     const {refToastSavefSettings}=useContext(ConfigContext)
@@ -21,8 +19,3 @@ export function ToastSaveSettings(){
         </div>
     </div>
 }
-
-
-
-
-

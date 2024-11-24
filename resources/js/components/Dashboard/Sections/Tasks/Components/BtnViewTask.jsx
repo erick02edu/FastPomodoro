@@ -8,8 +8,3 @@ export function BtnViewTask({idTask}){
         <span className="d-inline d-md-none"><i className="fa-solid fa-eye"></i></span>
     </Link>
 }
-
-
-
-
-

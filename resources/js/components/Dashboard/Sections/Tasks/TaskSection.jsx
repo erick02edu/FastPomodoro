@@ -16,7 +16,6 @@ import { ToasUpdateTask } from "./Components/ToastUpdateTask";
 import { ToastDeleteTask } from "./Components/ToastDeleteTask";
 import { BtnAddTask } from "./Components/BtnAddTask";
 
-
 export default function TaskSection(){
 
     const {section,setSection,isLoading,getTask,
@@ -122,7 +121,6 @@ export default function TaskSection(){
                 <ToastAddTask nameRef={toastAdd}/>
                 <ToasUpdateTask nameRef={ToastUpdate}/>
                 <ConfirmDeleteTask/>
-                {/* <ModalEditTask/> */}
                 <ToastDeleteTask nameRef={ToastDelete}/>
                 {
 
@@ -163,14 +161,10 @@ export default function TaskSection(){
             }
             </div>
             <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-groupTask-tab">
-
                 {
                     section=="Group" &&
                     <ContentGroupTask/>
                 }
-
-
-
             </div>
         </div>
 

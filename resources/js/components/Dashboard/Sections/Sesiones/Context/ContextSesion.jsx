@@ -16,6 +16,8 @@ export function ContextSesion(props){
     const refToastAddTaskSesion=useRef()
     const toastRename=useRef();
     const toastDelete=useRef();
+    const [InfoSesion,setInfoSesion]=useState([]);
+    const [errorPage,setErrorPage]=useState(false)
 
     const ObtenerSesiones=()=>{
         setLoad(true);
@@ -39,20 +41,11 @@ export function ContextSesion(props){
             setLoad(false)
         })
     }
-    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    const [InfoSesion,setInfoSesion]=useState([]);
-    const [errorPage,setErrorPage]=useState(false)
-
-    const [orderTasks,setOrderTasks]=useState([]);
 
     const ObtenerInfoSession=async(id)=>{
-
         setLoad(true);
         try {
             const response=await axios.get(`/getSesionInfo/${id}`)
-            // console.log(response.data);
-
             if(response.data==''){
                 setErrorPage(true);
             }else{
@@ -66,41 +59,30 @@ export function ContextSesion(props){
         }
     }
 
-
     const updateOrderTaskSession=async(idSesion,listTasks)=>{
-
         listTasks=listTasks.map(task=>task.id);
-
         const formUpdateOrder={
             idSesion,
             listTasks,
         }
         try {
             const response=await axios.put("/updateTaskOrder",formUpdateOrder);
-            console.log(response.data);
             return response;
         } catch (error) {
             console.log(error)
         }
-
     }
 
     const moveUpTask=(id)=>{
-
         //Obtener indice
         const index=InfoSesion.tasks.findIndex(sesion=>sesion.id===id);
-
         let start=index-1;
-
-        console.log(start)
-        console.log(InfoSesion.tasks.length);
 
         if(start<0){
             start=InfoSesion.tasks.length-1;
         }
 
         const [element] = InfoSesion.tasks.splice(index, 1);
-        console.log(element);
 
         setLoad(InfoSesion.tasks.splice(start,0,element))
         updateOrderTaskSession(InfoSesion.id, InfoSesion.tasks)
@@ -112,9 +94,6 @@ export function ContextSesion(props){
 
         let start=index+1;
 
-        console.log(start)
-        console.log(InfoSesion.tasks.length);
-
         if(start>=InfoSesion.tasks.length){
             start=0;
         }
@@ -123,11 +102,7 @@ export function ContextSesion(props){
 
         setLoad(InfoSesion.tasks.splice(start,0,element))
         updateOrderTaskSession(InfoSesion.id, InfoSesion.tasks)
-
     }
-
-
-    //------------------------------------------------------------------------------------------------------------------------------=-------------------------------------
 
     const renameSesion=async (id,newName)=>{
         try {
@@ -161,7 +136,6 @@ export function ContextSesion(props){
         setLoad(true)
         //Reiniciar valores de paginacion
         resetValuePagination();
-
         try {
             const response=await axios.get('/searchSesion',{params:{query,page:1 } })
             setListSesion(response.data.data)
@@ -209,10 +183,8 @@ export function ContextSesion(props){
         }
         try {
             const response=await axios.post('/addTaskSesion',formAddTaskSesion);
-            console.log(response.data);
             let newDuration=response.data;
             updateDurationTask(newDuration)
-
             if(response.status==200){
                 showToastAddTaskSesion();
             }
@@ -236,7 +208,6 @@ export function ContextSesion(props){
                 let newTasks=InfoSesion.tasks.filter(task=>task.id!=idTask);
 
                 let newDuration=response.data;
-                console.log(newDuration);
 
                 setInfoSesion(prevInfoSesion=>{
                     return {

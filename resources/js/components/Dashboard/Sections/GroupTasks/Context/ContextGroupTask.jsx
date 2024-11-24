@@ -9,25 +9,18 @@ export function ContextGroupTask(props){
     const [ListGroupTask,setListGroupTask]=useState([]);
     const [isLoadingGroup,setIsLoadingGroup]=useState(false);
     const [busqueda,setBusqueda]=useState();
-
     const [selectGroupTask,setSelectGroupTask]=useState([])
     const [GroupSelect,setGroupSelect]=useState();
-
     const ToastAddGroup=useRef();
     const ToastDeleteGroup=useRef();
-
     const [page,setPage]=useState(1);
     const [hasMore,setHasMore]=useState(false)
-
     const [tasksGroup,setTaskGroup]=useState([]);
     const [isLoadingTaskGroup,setIsLoadingTaskGroup]=useState(false);
-
     const [UnassociatedTasks,setUnassocietedTasks]=useState([]);
     const [isLoadingTask,setIsLoadingTask]=useState(false);
-
     const [errorForm,setErrorForm]=useState(null);
     const btnCloseModalAddGroup=useRef();
-
 
     const [formGroup,setFormGroup]=useState({
         name:'',
@@ -68,8 +61,6 @@ export function ContextGroupTask(props){
                 closeModal && btnCloseModalAddGroup.current.click();
                 await getGroupTask();
                 showToastAddGroup();
-                //const toast=new Toast(ToastAddGroup.current)
-                //toast.show();
             } catch (error) {
                 console.log(error)
             }
@@ -77,7 +68,6 @@ export function ContextGroupTask(props){
     }
 
     const getGroupTask=async()=>{
-        //alert("Obteniendo grupos")
         setBusqueda("")
         setPage(1);
         setListGroupTask([]);
@@ -87,13 +77,10 @@ export function ContextGroupTask(props){
         try {
             const response=await axios.get('/getGroupTask');
             setListGroupTask(response.data.data);
-
             //Ver si hay mas datos
             if(response.data.current_page >= response.data.last_page){
                 setHasMore(false);
             }
-
-
         } catch (error) {
             console.log(error)
         }
@@ -103,23 +90,17 @@ export function ContextGroupTask(props){
     }
 
     const getNextGroup=async()=>{
-
         const nextPage=page+1
         setPage(prevPage=>prevPage+1)
 
         try {
-
             const response=await axios.get('/getGroupTask',{params:{page:nextPage}});
             const newGroupTask=response.data.data
-
             setListGroupTask(prevGroup=>[...prevGroup,...newGroupTask]);
-
             //Ver si hay mas datos
             if(response.data.current_page >= response.data.last_page){
                 setHasMore(false);
             }
-
-
         } catch (error) {
             console.log(error);
         }
@@ -133,7 +114,6 @@ export function ContextGroupTask(props){
 
         try {
             const response=await axios.get('/searchGroup',{params:{query}})
-
             setListGroupTask(response.data.data);
             //Ver si hay mas datos
             if(response.data.current_page >= response.data.last_page){
@@ -147,11 +127,9 @@ export function ContextGroupTask(props){
     }
 
     const getNextGroupSearch=async()=>{
-
         const query=busqueda;
         const nextPage=page+1;
         setPage(prevPage=>prevPage+1);
-
         try {
             const response=await axios.get('/searchGroup',{params:{query,page:nextPage}})
             const newGroupTask=response.data.data
@@ -163,24 +141,18 @@ export function ContextGroupTask(props){
         } catch (error){
             console.log(error)
         }
-
     }
 
     const deleteTaskFromGroup=async(idTask,idGroup)=>{
         try {
             const response=await axios.delete('/removeTask',{params:{idTask,idGroup}})
-
             setTaskGroup((prevTask)=>{
                 return prevTask.filter(task=>task.id!=idTask);
             })
-
             getUnassociatedTasks();
-
-
         } catch (error) {
             console.log(error)
         }
-
     }
 
     const getUnassociatedTasks=async(idGroup)=>{
@@ -203,9 +175,7 @@ export function ContextGroupTask(props){
             }
 
             const response=await axios.post('/addTaskToGroup',formAddTaskToGroup)
-
             let group=response.data
-
             setFormEditGroup({
                 id:group.id,
                 name:group.nameGroup,
@@ -220,8 +190,6 @@ export function ContextGroupTask(props){
     const deleteGroup=async()=>{
         try {
             const response=await axios.delete(`/groupTask/${GroupSelect.id}`)
-            console.log(response.data);
-
             setListGroupTask((prevGroup)=>{
                 return prevGroup.filter(group=>group.id!=GroupSelect.id);
             })
@@ -237,16 +205,12 @@ export function ContextGroupTask(props){
         setIsLoadingTaskGroup(true);
        try {
             const response=await axios.get(`/getGroupInfo/${idGroup}`)
-            console.log(response.data)
-
             let group=response.data
-
             setFormEditGroup({
                 id:group.id,
                 name:group.nameGroup,
                 tasksSelect:group.tasks
             })
-            //setTaskGroup(response.data);
        } catch (error) {
             console.log(error)
        }
@@ -266,12 +230,10 @@ export function ContextGroupTask(props){
     }
 
     const deleteTaskForGroup=async(idGrupo,idTask)=>{
-
         let formDelete={
             idGrupo,
             idTask
         }
-
         try {
             const response=await axios.delete("/deleteTaskGroup",{params:formDelete})
             const newTasks=formEditGroup.tasksSelect.filter(task=>task.id!=idTask);
@@ -282,7 +244,6 @@ export function ContextGroupTask(props){
                     "tasksSelect":newTasks
                 }
             })
-
         } catch (error) {
             console.log(error);
         }

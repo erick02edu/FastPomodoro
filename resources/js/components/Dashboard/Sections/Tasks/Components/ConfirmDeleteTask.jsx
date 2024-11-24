@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { taskContext } from "../Context/ContextTask";
 
-
 export function ConfirmDeleteTask(){
 
     const {TaskSelect,deleteTask}=useContext(taskContext);
@@ -26,5 +25,3 @@ export function ConfirmDeleteTask(){
     </div>
 
 }
-
-

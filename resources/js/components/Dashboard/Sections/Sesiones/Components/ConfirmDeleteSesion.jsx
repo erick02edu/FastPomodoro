@@ -4,7 +4,6 @@ import { SesionContext } from "../Context/ContextSesion"
 export function ConfirmDeleteSesion(){
 
     const {deleteSesion}=useContext(SesionContext);
-
     return <div className="modal" id="exampleModal" tabIndex="-1">
         <div className="modal-dialog">
             <div className="modal-content">

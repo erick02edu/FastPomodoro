@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ChargingSpinner } from "../../../../Shared/ChargingSpinner";
 import { useNavigate } from "react-router-dom";
@@ -9,18 +8,17 @@ import { ToastAddTaskSesion } from "../Components/ToastAddTaskSesion";
 import { SesionContext } from "../Context/ContextSesion";
 import { TaskBreakDown} from "./../../../Shared/TaskBreakdown"
 
-
 export default function SessionInfo(){
 
     const {id}=useParams();
-
     let navigation=useNavigate();
+    const {ObtenerInfoSession,InfoSesion,load,errorPage}=useContext(SesionContext);
 
-    const {ObtenerInfoSession,InfoSesion,setInfoSesion,load,errorPage,updateOrderTaskSession}=useContext(SesionContext);
-
+    useEffect(()=>{
+        ObtenerInfoSession(id);
+    },[id])
 
     const formatearMinutos=(minutos)=>{
-
         let min=minutos;
 
         if(min>=1440){
@@ -32,24 +30,7 @@ export default function SessionInfo(){
             var horas= Math.floor(min/60);
             min=min-(horas*60);
         }
-
-
-
-
-
         return ` ${ dias>0 ? `${dias} dia ` : "" } ${ horas>0 ? `${horas} hora(s) ` : "" } ${ min>=0 ? `${min} minutos` : ""} `
-
-    }
-
-    useEffect(()=>{
-
-        ObtenerInfoSession(id);
-    },[id])
-
-
-
-    const getPageTask=(idTask)=>{
-        navigation(`/home/task/${idTask}`)
     }
 
     return <>
@@ -103,7 +84,6 @@ export default function SessionInfo(){
                     }
                     </div>
 
-
                     <button className="p-2 bg-opacity-10 btn btn-outline-secondary text-opacity-50 rounded-3" style={{border:'1px dashed'}}
                     data-bs-toggle="modal" data-bs-target="#ModalAddTaskSesion">
                         <div className="d-flex flex-column gap-1 py-2 justify-content-center align-items-center">
@@ -122,7 +102,6 @@ export default function SessionInfo(){
 
                 <h5 className="mt-5">Desglose de sesión</h5>
                 {
-
                     InfoSesion?.tasks?.map((task,index)=>(
                         <div class="accordion accordion-flush my-1" id="accordionFlushExample">
                             <div class="accordion-item">
@@ -141,14 +120,8 @@ export default function SessionInfo(){
 
                     ))
                 }
-
-
-
             </div>
-
         }
-
-
     </>
 }
 

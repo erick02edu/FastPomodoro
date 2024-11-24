@@ -1,17 +1,12 @@
 import { useContext } from "react"
 import { PerfilContext } from "../../../Context/PerfilContext"
 
-
 export function AlertDeleteAccount(){
 
-
     const {deleteAccount,logOut}=useContext(PerfilContext);
-
     const handleDeleteAccount=async()=>{
         await deleteAccount(window.user.id);
-      
     }
-
     return <div className="modal fade" id="alertDeleteAccount" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div className="modal-dialog modal-md"  >
         <div className="modal-content">
@@ -34,6 +29,3 @@ export function AlertDeleteAccount(){
     </div>
 </div>
 }
-
-
-

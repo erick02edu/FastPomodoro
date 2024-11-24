@@ -1,6 +1,3 @@
-
-
-
 export function BtnAddTask(){
 
     return <button className="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#ModalAddTask">

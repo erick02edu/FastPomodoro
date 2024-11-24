@@ -4,7 +4,6 @@ import { TooltipTaskDetail } from "./TooltipTaskDetail"
 import { useNavigate } from "react-router";
 import { SesionContext } from "../Sections/Sesiones/Context/ContextSesion";
 
-
 export function TaskBox({task,idSesion}){
 
     const {moveUpTask,moveDownTask,deleteTaskSesion}=useContext(SesionContext);
@@ -56,6 +55,5 @@ export function TaskBox({task,idSesion}){
 
         </div>
     </div>
-
 }
 

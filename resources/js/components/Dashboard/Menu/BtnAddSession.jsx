@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { MenuContext } from "../Context/ContextMenu";
 
-
 export function BtnAddSession(){
     const {BarraActive}=useContext(MenuContext)
     return <>

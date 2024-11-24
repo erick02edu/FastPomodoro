@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BarraBusquedaGroup } from "./BarraBusquedaGroup"
 
-export function SelectGroup({group,setGroup}){
+export function SelectGroup(){
 
     const [SelectGroup,setSelectGroup]=useState([]);
     const [count,setCount]=useState(0);
@@ -45,10 +45,7 @@ export function SelectGroup({group,setGroup}){
                     <BarraBusquedaGroup/>
                 </div>
             </div>
-
-
             <div className="border p-2 rounded-2 overflow-y-auto" id="sectionTasks" style={{height:'200px'}}>
-                
             </div>
         </div>
     </div>

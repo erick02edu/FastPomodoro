@@ -18,7 +18,6 @@ export function ToastChangeImgPerfil(){
             </div>
         </div>
     </div>
-
 }
 
 

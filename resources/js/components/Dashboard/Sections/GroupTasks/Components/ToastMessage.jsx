@@ -1,6 +1,4 @@
-
 export function ToastMessage({nameRef,title,message}){
-
     return <div className="position-fixed bottom-0 end-0 p-3" style={{zIndex: 11}}>
         <div ref={nameRef} id="toastRenameSession" className="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div className="toast-header">
@@ -14,5 +12,4 @@ export function ToastMessage({nameRef,title,message}){
             </div>
         </div>
     </div>
-
 }

@@ -28,7 +28,6 @@ export function FormAddTask(){
 
     },[formValues])
 
-
     return <form onSubmit={handleSubmit(addTask)} >
 
             <div className="modal-header">
@@ -148,9 +147,6 @@ export function FormAddTask(){
                     <input type="number" className=" w-25 form-control"
                     name="numPomBreakTime" {...register("numPomBreakTime")}/>
                 </div>
-                {/* <pre>
-                    {JSON.stringify(formTask,null,2)}
-                </pre> */}
 
             </div>
 

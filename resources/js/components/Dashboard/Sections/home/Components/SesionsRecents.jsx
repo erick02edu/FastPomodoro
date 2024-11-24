@@ -3,11 +3,16 @@ import axios from 'axios';
 import { ChargingSpinner } from '../../../../Shared/ChargingSpinner';
 import { BtnViewSesion } from '../../Sesiones/Components/BtnViewSesion';
 
-
 export function SesionRecents(){
 
     const [sesiones,setSesiones]=useState([]);
     const [isLoad,setIsLoad]=useState(true);
+
+    const fecha = new Date();
+    const anio = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Se suma 1 ya que getMonth() devuelve el mes en base 0
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const fechaFormateada= `${anio}-${mes}-${dia}`
 
     const getDate=(fecha)=>{
         let dateTime = fecha;
@@ -19,18 +24,11 @@ export function SesionRecents(){
         //Fecha en formato ("2024-11-02T20:43:43.000000Z")
         let dateTime =fecha;
         let [date, time] = dateTime.split(' ');
-
         time=`${time.slice(0, 5)}`
-
         return time;
     }
 
-    const dateEqual=(date1,date2)=>{
-        return date1.getTime() === date2.getTime()
-    }
-
     function formatearFecha(fechaISO) {
-
         const fecha = new Date(fechaISO);
         return new Intl.DateTimeFormat('es-ES', {
             day: 'numeric',
@@ -54,11 +52,6 @@ export function SesionRecents(){
         getRecentSesions()
     },[])
 
-    const fecha = new Date();
-    const anio = fecha.getFullYear();
-    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Se suma 1 ya que getMonth() devuelve el mes en base 0
-    const dia = String(fecha.getDate()).padStart(2, '0');
-    const fechaFormateada= `${anio}-${mes}-${dia}`
 
     return <>
         {
@@ -119,9 +112,5 @@ export function SesionRecents(){
                 </div>
             </div>
         }
-
     </>
-
-
-
 }

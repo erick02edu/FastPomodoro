@@ -6,7 +6,6 @@ import { ChargingSpinner } from "../../../../Shared/ChargingSpinner";
 import { ModalAddTaskToGroup } from "../Components/ModalAddTaskToGroup";
 import { TaskBoxForGroup } from "../Components/TaskBoxForGroup";
 
-
 export default function GroupTasksDetails(){
 
     const {id}=useParams();
@@ -21,7 +20,6 @@ export default function GroupTasksDetails(){
     },[formEditGroup])
 
     return <div>
-
         <div>
             {
                 isLoadingTaskGroup?
@@ -57,16 +55,7 @@ export default function GroupTasksDetails(){
                         </button>
                     </div>
                 </div>
-
             }
         </div>
-
     </div>
 }
-
-
-
-
-
-
-

@@ -8,10 +8,7 @@ export function ContextToast(props){
     const [titleToast,setTitleToast]=useState('');
     const [contentToast,setContentToast]=useState();
     const [typeToast,setTypeToast]=useState();
-
     const toastAlert=useRef();
-
-
 
     const openToast=(title,content,type)=>{
         setTitleToast(title);
@@ -21,8 +18,6 @@ export function ContextToast(props){
         let toast=new Toast(toastAlert.current);
         toast.show();
     }
-
-
 
     return <ToastContext.Provider value={{
         toastAlert,

@@ -1,6 +1,3 @@
-
-
-
 export function TaskBreakDown({task}){
 
     const formatearMinutos=(minutos)=>{

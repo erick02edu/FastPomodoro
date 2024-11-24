@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,24 +27,15 @@ Auth::routes();
 Route::get('/login-google',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogle'])->name('login-google');
 Route::get('/google-callback',[App\Http\Controllers\Auth\LoginController::class,'LoginGoogleCallback'])->name('login-google-return');
 
-
-// Route::get('/funciones',function(){
-//     return view("funciones");
-// });
-
-// Route::get('/funciones/{any}',function(){
-//     return view("funciones");
-// });//Subrutas para navegar en funciones
-
 Route::get('/funciones/{any?}',function(){
     return view("Funciones");
 })->where('any', '.*')->name('funciones');
+
 
 //Rutas protegidas
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home/{any?}', [HomeController::class, 'index'])->where('any', '.*')->name('home');
-
 
     Route::get('/getUser',[App\Http\Controllers\UserController::class,'getUserAuth']);
     Route::post('/saveConfig',[App\Http\Controllers\UserController::class,'saveConfig']);

@@ -26,9 +26,6 @@ export function OptionPerfilDash(){
                     style={ BarraActive ? {width:'85%'}: {} } >
                     Perfil
                 </div>
-
-
-
             </div>
         </NavLink>
     </div>

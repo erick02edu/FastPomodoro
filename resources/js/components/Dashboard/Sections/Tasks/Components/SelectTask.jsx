@@ -4,15 +4,10 @@ import { ChargingSpinner } from "../../../../Shared/ChargingSpinner";
 import { GrowingSpinner } from "../../../../Shared/GrowingSpinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BarraBusquedaTask } from "./BarraBusquedaTask";
-import { Tooltip } from "react-tooltip";
-import { ModalEditTask } from "./ModalEditTask";
 import { BtnOpenModalEditTask } from "./BtnOpenModalEditTask";
-import { FormEditTask } from "./FormEditTask";
-import { BtnUpdateTask } from "./BtnUpdateTask";
 import { TooltipTaskDetail } from "../../../Shared/TooltipTaskDetail";
 
 //Parámetros
-
 /*
     1. Grupo de tareas donde se guardara el estado
     2. Función que contenga un parámetro en el cual se devolverá la lista de tareas que se seleccionen en este componente
@@ -32,10 +27,6 @@ export function SelectTask({name="",tasks=[],setTask,omitTask=[],returnModalClos
 
     const inputNewTask=useRef();
     const containerTasks=useRef();
-
-    // const cambiarValor=()=>{
-    //     setFormEditTask(tasks)
-    // }
 
     useEffect(()=>{
         if(omitTask.length>0){
@@ -57,35 +48,17 @@ export function SelectTask({name="",tasks=[],setTask,omitTask=[],returnModalClos
     },[SelectTasks])
 
     useEffect(()=>{
-        // const checkScrollContent = () => {
-        //     if (containerTasks.current && containerTasks.current.scrollHeight <= containerTasks.current.clientHeight && isLoading) {
-        //         nextTasks();
-        //     }
-        // };
-        // checkScrollContent();
-    },[ListTasks])
-
-    useEffect(()=>{
-
         if(omitTask.length>0){
-            //console.log("Omit tasks")
-
             omitTask=omitTask.map(task=>task.id)
-            //console.log(omitTask)
-
             getTask(omitTask);
 
         }else{
             getTask()
         }
-
-
-
         return ()=>{
             setSelectTask([]);
             setTask([]);
         }
-
     },[])
 
     const hanleCheckbox=(e,task)=>{
@@ -112,7 +85,6 @@ export function SelectTask({name="",tasks=[],setTask,omitTask=[],returnModalClos
             var newTask=await addTaskFast(nameTask);
             addList(newTask);
         }
-
         setViewMessage(true);
         setViewAddTask(false)
     }
@@ -270,9 +242,7 @@ export function SelectTask({name="",tasks=[],setTask,omitTask=[],returnModalClos
                             }
                         </InfiniteScroll>
                     }
-
             </div>
         </div>
     </div>
 }
-
