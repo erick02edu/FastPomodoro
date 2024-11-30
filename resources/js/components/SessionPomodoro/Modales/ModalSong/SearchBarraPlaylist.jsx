@@ -12,13 +12,17 @@ const SearchBarraPlaylist=()=>{
 
     const BuscarPlaylist=async()=>{
 
-        let busqueda=InputPlaylist.current.value
-        if(token==null){
-            token=await getToken()
+        try{
+            let busqueda=InputPlaylist.current.value
+            if(token==null){
+                token=await getToken()
+            }
+            let playlists=await searchAlbumsSpotify(token,busqueda);
+            setPlaylist(playlists);
+        }catch(error){
+            console.log(error);
         }
 
-        let playlists=await searchAlbumsSpotify(token,busqueda);
-        setPlaylist(playlists);
     }
 
     const getToken= async()=>{
