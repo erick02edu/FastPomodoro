@@ -5,7 +5,7 @@ Esta Plataforma busca optimizar los tiempos de estudio dedicados por los estudia
 <img width="500" height="250" src="public/img/Previsualización/FastPomodoroPanelEstudio.JPG"/>
 
 ENLACE A PLATAFORMA: 
-<a href="https://fastpomodoro-production.up.railway.app/">
+<a href="https://fastpomodoro-production.up.railway.app/" target="_blank">
     <strong> FastPomodoro</strong>
 </a>
 
