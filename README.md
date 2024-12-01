@@ -2,7 +2,7 @@
 Plataforma web orientada a la tecnica de estudio Pomodoro con la capacidad para crear sesiones de estudios basadonse en tareas.
 Esta Plataforma busca optimizar los tiempos de estudio dedicados por los estudiantes, profesionales y cualquiera que busque mejorar su productividad.
 
-<img width="500" height="300" src="public/img/Previsualización/FastPomodoroWelcome.JPG"/>
+<img width="500" height="250" src="public/img/Previsualización/FastPomodoroPanelEstudio.JPG"/>
 
 ENLACE A PLATAFORMA: 
 <a href="https://fastpomodoro-production.up.railway.app/">
@@ -12,7 +12,11 @@ ENLACE A PLATAFORMA:
 ## CARACTERISTICAS
 Integracion con otras herramientas como Google OAUTH para la autenticacion de usuarios o Spotify para brindar una mayor experiencia a los usuarios al realizar sus sesiones de estudio
 ### GOOGLE OAUTH
-<img width="300" height="250" src="public/img/Previsualización/FastPomodoroLogin.JPG"/>
+<img width="450" height="350" src="public/img/Previsualización/FastPomodoroLogin.JPG"/>
+
+### SPOTIFY
+<img width="450" height="250" src="public/img/IntegrationSpotify.jpg"/>
+
 
 PLATAFORMA CONSTRUIDA CON TECNOLOGIAS COMO: <br/>
 
