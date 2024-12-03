@@ -17,7 +17,7 @@ export function SectionIntegrations(){
             </div>
 
             <div className="px-0 flex-grow-1 w-100 order-lg-0">
-                <img src={`${import.meta.env.VITE_API_URL}/img/IntegrationSpotify.jpg`} className="w-100 rounded-2" style={{height:"235px"}}></img>
+                <img loading="lazy" src={`${import.meta.env.VITE_API_URL}/img/IntegrationSpotify.webp`} className="w-100 rounded-2" style={{height:"235px"}}></img>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ export function DescriptionPlataform(){
 
             </div>
             <div className="w-100 mx-3 px-0 ps-lg-4 ">
-                <img src={`${import.meta.env.VITE_API_URL}/img/PanelEstudio2.jpg`} className="rounded-2 w-100 img-fluid border" style={{ height:"200px"}}></img>
+                <img loading="lazy" src={`${import.meta.env.VITE_API_URL}/img/PanelEstudio2.webp`} className="rounded-2 w-100 img-fluid border" style={{ height:"200px"}}></img>
             </div>
         </div>
 
